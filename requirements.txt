@@ -1,0 +1,7 @@
+structlog
+pytest
+isort
+black
+ruff
+mypy
+pydantic
