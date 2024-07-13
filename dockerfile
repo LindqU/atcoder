@@ -18,7 +18,7 @@ RUN pip install -r requirements.txt
 
 # Copy helper scripts and core directory
 COPY atcoder_helper.py /usr/local/bin/atcoder_helper.py
-COPY core /usr/local/lib/python3.8/site-packages/core
+COPY core /usr/local/lib/python3.11/site-packages/core
 RUN chmod +x /usr/local/bin/atcoder_helper.py
 
 # Create contests directory
