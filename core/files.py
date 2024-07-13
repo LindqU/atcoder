@@ -1,7 +1,9 @@
 """validationのファイルを読み込む関数"""
 
 from core.logger import log
+from core.config import TARGETS
 import os
+import pytest
 
 
 def read_file(file_path) -> list:
@@ -20,8 +22,7 @@ def read_file(file_path) -> list:
     return ex_outputs
 
 
-def get_test_files(path):
-    # pathディレクトリ内の全てのファイルを取得
+def get_test_files(path, targets=TARGETS):  # pathディレクトリ内の全てのファイルを取得
     files = os.listdir(path)
     test_cases = []
 
@@ -32,8 +33,23 @@ def get_test_files(path):
             # 対応する.outファイルの存在を確認
             expected_file = base_name + ".out"
             if expected_file in files:
-                test_cases.append(
-                    (os.path.join(path, file), os.path.join(path, expected_file))
-                )
+                # targetsに指定されている問題の場合のみテストケースに追加
+                if path.split(os.path.sep)[-2] in targets:
+                    test_cases.append(
+                        pytest.param(
+                            os.path.join(path, file),
+                            os.path.join(path, expected_file),
+                            id=base_name,
+                        )
+                    )
+                else:
+                    test_cases.append(
+                        pytest.param(
+                            os.path.join(path, file),
+                            os.path.join(path, expected_file),
+                            marks=pytest.mark.skip(reason="難易度が高いため"),
+                            id=base_name,
+                        )
+                    )
 
     return test_cases

@@ -5,3 +5,13 @@ extensions = {
         "test_file_name": "test.py",
     },
 }
+
+
+TARGETS = [
+    "a",
+    # "b",
+    # "c",
+    # "d",
+    # "e",
+    # "f"
+]

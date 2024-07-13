@@ -24,6 +24,7 @@ run:
 	@echo "Running container for contest $(CONTEST_ID)..."
 	docker run -it --rm \
 		-v $(CURDIR):/atcoder \
+		-v $(CURDIR)/core:/usr/local/lib/python3.11/site-packages/core \
 		-e CONTEST_ID=$(CONTEST_ID) \
 		-e LANGAGE=$(LANGAGE) \
 		-e ATCODER_USERNAME=$(ATCODER_USERNAME) \
