@@ -1,0 +1,2 @@
+LANGAGE ?= python
+CONTEST_ID ?=
