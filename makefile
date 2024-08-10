@@ -37,6 +37,9 @@ setup:
 	@echo "コンテナ内で実行する想定のコマンド"
 	python3 /usr/local/bin/atcoder_helper.py setup --contest $(CONTEST_ID)
 
+ci:
+	
+
 clean:
 	@echo "Removing Docker image..."
 	docker rmi $(IMAGE_NAME)

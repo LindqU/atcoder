@@ -7,6 +7,7 @@ extensions = {
 }
 
 
+# テストケースのディレクトリ
 TARGETS = [
     "a",
     # "b",
