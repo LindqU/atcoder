@@ -23,6 +23,7 @@ make run {contest_id}
 
 ```bash
 acc login
+oj login https://beta.atcoder.jp/
 ```
 
 ログインを済ませる。
