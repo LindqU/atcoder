@@ -10,7 +10,7 @@ class In:
 
     def __init__(self, file_path: str) -> None:
         with open(file_path, encoding="utf-8") as file:
-            self.__que: object = deque(file.readlines())
+            self.__que: deque = deque(file.readlines())
 
     def pop(self) -> str:
         """先頭データの取り出し。
@@ -55,7 +55,6 @@ class Out:
             elif output != " " and not pre_space_flag:
                 outputs.append("".join(tmp_list))
                 pre_space_flag = False
-                tmp_list: List = list()
                 tmp_list.append(output)
 
             elif output == " ":
