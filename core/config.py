@@ -8,4 +8,7 @@ extensions = {
 
 
 # テストケースのディレクトリ
-TARGETS = ["a", "b", "c", "d", "e", "f"]
+TARGETS = [
+    "a", "b", "c", "d",
+    # "e", "f"
+    ]

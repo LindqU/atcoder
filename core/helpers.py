@@ -88,6 +88,9 @@ class AtcoderContest:
         task_dir_path = f"/workspaces/atcoder/contests/{contest_id}"
         dir_list = get_directories(task_dir_path)
 
+        with open(os.path.join(task_dir_path, '__init__.py'), 'w', encoding='utf-8') as f:
+            pass
+
         for task_dir in dir_list:
             # initの生成
             with open(

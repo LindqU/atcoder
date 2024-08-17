@@ -14,4 +14,4 @@ def test_main(monkeypatch: pytest.MonkeyPatch, _input, _expected):
     monkeypatch.setattr("sys.stdin.readline", stdin.pop)
     monkeypatch.setattr("sys.stdout.write", stdout.add)
     main()
-    assert stdout.outputs == stdout.validation
+    assert stdout._Out__outputs == stdout.validation

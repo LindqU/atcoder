@@ -40,7 +40,7 @@ setup:
 submit-%:
 	@echo "Submitting solution to AtCoder..."
 	@echo "コンテナ内で実行する想定のコマンド"
-	oj submit https://atcoder.jp/contests/${CONTEST_ID}/tasks/${CONTEST_ID}_$* /atcoder/contests/${CONTEST_ID}/$*/main.py -l 5055
+	oj submit https://atcoder.jp/contests/${CONTEST_ID}/tasks/${CONTEST_ID}_$* /workspaces/atcoder/contests/${CONTEST_ID}/$*/main.py -l 5055
 
 ci:
 	
