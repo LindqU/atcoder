@@ -5,6 +5,7 @@ RUN apt-get update && apt-get install -y \
     nodejs \
     npm \
     expect \
+    git \
     && rm -rf /var/lib/apt/lists/*
 
 # Install AtCoder CLI and online-judge-tools

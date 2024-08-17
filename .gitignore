@@ -1,2 +1,7 @@
 **/__pycache__/**
 .env
+**/.vscode-server/**
+**/.cache/**
+**/.dotnet/**
+**/.config/**
+**/.local/**

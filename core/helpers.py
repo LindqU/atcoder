@@ -16,7 +16,7 @@ class AtcoderCli:
     @staticmethod
     def fetch_contest_info(contest_id=os.getenv("CONTEST_ID")):
         log.info("Fetching contest information", contest_id=contest_id)
-        contest_dir = f"/atcoder/contests/"
+        contest_dir = "/workspaces/atcoder/contests/"
         os.makedirs(contest_dir, exist_ok=True)
         os.chdir(contest_dir)
 
@@ -65,12 +65,15 @@ class AtcoderContest:
             # pathの一覧取得
             return [d for d in os.listdir(path) if os.path.isdir(os.path.join(path, d))]
 
-        langage = os.environ["LANGAGE"]
+        langage = os.getenv("LANGAGE", "python")
 
         # mainのテンプレートを取得
         main_file_name = extensions[langage]["main_file_name"]
         log.info("Copying main template", langage=langage, filename=main_file_name)
-        main_template_path = f"/atcoder/core/templates/{langage}/main/{main_file_name}"
+        main_template_path = (
+            f"/workspaces/atcoder/core/templates/{langage}/main/{main_file_name}"
+        )
+        print(main_template_path)
         with open(main_template_path, "r", encoding="utf-8") as f:
             main_template = f.read()
         main_file_name = extensions[langage]["main_file_name"]
@@ -78,11 +81,11 @@ class AtcoderContest:
         # testのテンプレートを取得
         test_file_name = extensions[langage]["test_file_name"]
         log.info("Copying test template", langage=langage, filename=test_file_name)
-        test_template_path = f"/atcoder/core/templates/{langage}/test/{test_file_name}"
+        test_template_path = f"/workspaces/atcoder/core/templates/{langage}/test/{test_file_name}"
         with open(test_template_path, "r", encoding="utf-8") as f:
             test_template = f.read()
 
-        task_dir_path = f"/atcoder/contests/{contest_id}"
+        task_dir_path = f"/workspaces/atcoder/contests/{contest_id}"
         dir_list = get_directories(task_dir_path)
 
         for task_dir in dir_list:
