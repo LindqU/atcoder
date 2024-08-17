@@ -2,6 +2,9 @@
     "python.testing.pytestArgs": [
         "contests"
     ],
+    "python.analysis.exclude": [
+        "core/templates"
+    ],
     "python.testing.unittestEnabled": false,
     "python.testing.pytestEnabled": true
 }
